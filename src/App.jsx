@@ -8,11 +8,17 @@ function App() {
   useEffect(() => {
     const usersCollectionRef = collection(db, 'users');
     getDocs(usersCollectionRef).then((querySnapshot) => {
-      querySnapshot.forEach((doc) => console.log(doc.data()));
+      setUsers(querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     });
   }, []);
 
-  return <div></div>;
+  return (
+    <div>
+      {users.map((user) => (
+        <div key={user.id}>{user.name}</div>
+      ))}
+    </div>
+  );
 }
 
 export default App;

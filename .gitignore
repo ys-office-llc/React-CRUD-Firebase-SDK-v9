@@ -13,3 +13,4 @@ dist-ssr
 .firebase
 
 react-crud-firebase-sdk-v9-firebase-adminsdk-3utrh-69a1f0e5ec.json
+*.log
